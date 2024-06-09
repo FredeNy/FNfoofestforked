@@ -43,9 +43,9 @@ export default function Home() {
   return (
     <>
     <form action='/booking/campingArea'>
-    <div className="sm:w-11/12 border-solid bg-Darkblue border-Hotpink border-2 rounded-3xl p-8 lg:w-7/12 m-auto mt-10">
+    <div className=" border-solid bg-Darkblue border-Hotpink border-2 rounded-3xl p-14 lg:mx-44 m-auto mt-10">
       <h1 className={` ${BowlbyOne.className} text-White text-2xl lg:text-4xl mb-5`}>TICKETS</h1>
-        <div className="grid md:flex md:p-8 gap-28">
+        <div className="grid md:flex  gap-28">
     
           <div>
             <h2 className='mt-8 mb-5 sm:text-base xl:text-2xl md:mt-0 text-White'>CHOOSE YOUR TICKETS</h2>
@@ -58,7 +58,7 @@ export default function Home() {
                 <RemoveTicket onRemoveButtonClick={handleRemoveTicket} /> 
                 <input 
                 name="ticketcount1" 
-                className='border-solid border-2 border-Lightpink rounded-full w-32 bg-White p-2' 
+                className='border-solid border-2 border-Hotpink rounded-full w-32 bg-White p-2' 
                 value={ticketcount1} />
                 <AddButton onButtonClick={() => handleTicketChange(ticketcount1 + 1)} />
               </div>
@@ -75,14 +75,14 @@ export default function Home() {
                 <RemoveTicket onRemoveButtonClick={handleRemoveTicket2} /> 
                 <input 
                 name="ticketcount2" 
-                className='border-solid border-2 border-Lightpink rounded-full w-32 bg-White p-2' 
+                className='border-solid border-2 border-Hotpink rounded-full w-32 bg-White p-2' 
                 value={ticketcount2} />
                 <AddButton onButtonClick={() => handleTicketChange2(ticketcount2 + 1)} />
               </div>
             </div>
           </div>
 
-          <div className='grid gap-5 m-auto'>
+          <div className='grid gap-5'>
           <div>
             <Ticket 
             ticketcount1={ticketcount1} 

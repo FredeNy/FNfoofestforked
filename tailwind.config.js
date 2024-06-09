@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'Hotpink': '#D500C0',
+      'Hotpink': '#E80AD1',
       'Lightpink': '#FF68E4',
       'White': '#FFF',
       'Navyblue': '#29029F',
