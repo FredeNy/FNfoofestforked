@@ -43,13 +43,13 @@ export default function Home() {
   return (
     <>
     <form action='/booking/campingArea'>
-    <div className=" border-solid bg-Darkblue border-Hotpink border-2 rounded-3xl p-14 lg:mx-44 m-auto mt-10">
-      <h1 className={` ${BowlbyOne.className} text-White text-2xl lg:text-4xl mb-5`}>TICKETS</h1>
-        <div className="grid md:flex  gap-28">
+    <div className="text-White bg-Darkblue p-4 sm:p-6 md:p-12 lg:p-16 m-4 sm:m-4 md:m-12 lg:mx-60 rounded-3xl border-2 border-Hotpink">
+      <h1 className={` ${BowlbyOne.className} text-White text-3xl md:text-4xl mb-2 sm:mb-6 md:mb-8`}>TICKETS</h1>
+        <div className="grid md:flex place-content-between">
     
           <div>
-            <h2 className='mt-8 mb-5 sm:text-base xl:text-2xl md:mt-0 text-White'>CHOOSE YOUR TICKETS</h2>
-            <div className='grid mb-5 2xl:flex 2xl:gap-24'> 
+            <h2 className='mt-8 mb-6 sm:text-base text-xl xl:text-2xl font-bold md:mt-0 text-White'>CHOOSE YOUR TICKETS</h2>
+            <div className='grid mb-6 2xl:flex 2xl:gap-24'> 
               <div className='text-White'>
                 <h2 className="text-xl text-White"><span className='text-Hotpink font-bold'>FOO</span> TICKET</h2>
                 <p>799 DKK</p>
@@ -82,7 +82,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='grid gap-5'>
+          <div className='grid gap-5 mt-16 md:mt-0'>
           <div>
             <Ticket 
             ticketcount1={ticketcount1} 
@@ -94,7 +94,7 @@ export default function Home() {
              handleRemoveTicket2={handleRemoveTicket2} 
              ticketPrice2={1299} />
           </div>
-          <div className='m-auto'>
+          <div className='mt-2 mb-4'>
             <ChooseTicket />
           </div>
           </div>

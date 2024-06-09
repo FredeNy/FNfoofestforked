@@ -62,12 +62,12 @@ export default function Home() {
       <input type="hidden" name="ticketcount1" value={regular}/>
       <input type="hidden" name="ticketcount2" value={vip}/>
 
-    <div className="lg:mx-44 p-8 border-solid bg-Darkblue border-Hotpink border-2 rounded-3xl xl:p-20 m-auto mt-10">
-      <h1 className={`text-White text-2xl mb-10 md:mb-0 lg:text-4xl ${BowlbyOne.className}`}>CAMPING AREA</h1>
+    <div className="text-White bg-Darkblue p-4 sm:p-6 md:p-12 lg:p-16 m-4 sm:m-4 md:m-12 lg:mx-44 rounded-3xl border-2 border-Hotpink">
+      <h1 className={`text-White text-3xl mb-10 md:mb-0 lg:text-4xl ${BowlbyOne.className}`}>CAMPING AREA</h1>
         <div className="grid gap-10 xl:grid-cols-2 xl:gap-4 xl:py-8">
 
           <div className='justify-content-center'> 
-            <h2 className='text-White sm:text-base xl:text-2xl font-bold mb-5'>CHOOSE YOUR CAMPING AREA</h2>
+            <h2 className='text-White sm:text-base text-xl xl:text-2xl font-bold mb-6'>CHOOSE YOUR CAMPING AREA</h2>
             <div className='grid xl:grid-cols-2 text-White'>
             <label className='hover:text-Hotpink text-xl mt-2'><input className='w-5 h-5' defaultValue="Svartheim" onChange={handleCampingArea} type="radio" name='area'  /> Svartheim</label>
             <label className='hover:text-Hotpink text-xl mt-2'><input className='w-5 h-5' defaultValue="Nilfheim" onChange={handleCampingArea} type="radio" name='area' /> Nilfheim</label>
@@ -118,7 +118,7 @@ export default function Home() {
             <br />
           </div>
 
-          <div className='grid gap-5 items-center'>
+          <div className='grid gap-5 mt-5'>
           <div className=''> 
             <CampingTickets 
             tentTicket={twoTentTicket} 
@@ -132,7 +132,7 @@ export default function Home() {
              campingArea={campingArea}
              />  
           </div>
-          <div className='px-12'>
+          <div className='xl:px-12 mt-2 mb-4'>
             <ChooseTicket />
           </div>
           </div>
