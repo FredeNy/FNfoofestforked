@@ -44,16 +44,18 @@ function Schedule({ newArray, days }) {
     <>
       {isLoading ? (
         <Loader />
-
       ) : (
-
         <div>
-        {/* filter knapper efter ugedage */}
+          {/* filter knapper efter ugedage */}
           <div className="flex justify-center flex-wrap my-8 mb-4 md:mb-8 gap-5 p-2">
             {days.map((day) => (
               <button
                 key={day}
-                className={`text-lg font-bold md:text-2xl px-6 md:px-8 py-1 md:py-2 text-White rounded-full bg-Hotpink uppercase transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-Lightpink duration-300 cursor-pointer focus:text-White mt-3`}
+                className={`text-lg font-bold md:text-2xl px-6 md:px-8 py-1 md:py-2 rounded-full bg-Hotpink uppercase transition ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-Lightpink duration-300 cursor-pointer mt-3 ${
+                  selectedDay === day
+                    ? "bg-Lightpink text-White scale-125"
+                    : "text-White"
+                }`}
                 onClick={() => filterActsByDay(day)}
               >
                 {day}
@@ -61,7 +63,7 @@ function Schedule({ newArray, days }) {
             ))}
           </div>
 
-        {/* grid starter her for scenerne */}
+          {/* grid starter her for scenerne */}
           <section className="mx-auto max-w-6xl mb-24 p-2">
             <div>
               <motion.h3

@@ -1,12 +1,10 @@
-"use client"
-import { useState } from 'react'
-import { Bowlby_One } from "next/font/google";
-import Ticket from "@/app/components/Tickets/Ticket";
-import RemoveTicket from '@/app/components/RemoveTicket';
-import AddButton from '@/app/components/AddButton';
-import ChooseTicket from '@/app/components/ChooseTicket';
-
-
+"use client"; // Angiver at dette komponent er en client-side komponent
+import { useState } from 'react'; // Importerer useState-hook til håndtering af komponenttilstand
+import { Bowlby_One } from "next/font/google"; // Importerer en Google-font
+import Ticket from "@/app/components/Tickets/Ticket"; // Importerer Ticket-komponenten
+import RemoveTicket from '@/app/components/RemoveTicket'; // Importerer RemoveTicket-komponenten
+import AddButton from '@/app/components/AddButton'; // Importerer AddButton-komponenten
+import ChooseTicket from '@/app/components/ChooseTicket'; // Importerer ChooseTicket-komponenten
 
 const BowlbyOne = Bowlby_One({
   subsets: ["latin"],
@@ -14,32 +12,36 @@ const BowlbyOne = Bowlby_One({
   display: "swap",
 });
 
-
 export default function Home() {
+  // Definerer state hooks til billet tælling
   const [ticketcount1, setTicketcount1] = useState(0);
   const [ticketcount2, setTicketcount2] = useState(0);
 
+  // Håndterer ændring af første billet tælling
   const handleTicketChange = (count) => {
     setTicketcount1(count);
   };
-  
+
+  // Håndterer fjernelse af første billet
   const handleRemoveTicket = () => {
     if (ticketcount1 > 0) {
       setTicketcount1(prevCount => prevCount - 1);
     }
   };
 
+  // Håndterer ændring af anden billet tælling
   const handleTicketChange2 = (count) => {
     setTicketcount2(count);
   };
-  
+
+  // Håndterer fjernelse af anden billet
   const handleRemoveTicket2 = () => {
     if (ticketcount2 > 0) {
       setTicketcount2(prevCount => prevCount - 1);
     }
   };
-  
 
+  // Returnerer JSX til at rendere komponenten
   return (
     <>
     <form action='/booking/campingArea'>

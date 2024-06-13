@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation'
 
 //HeadersList for at få adgang til databasen i Supabase
@@ -42,8 +42,23 @@ async function FormSubmit(formData) {
 //Definere GuestForm funktionen
 export default function GuestForm() {
   const [state, setState] = useState({ message: '', pending: false });
-  const router = useRouter()
+  const [timeLeft, setTimeLeft] = useState(300); // 300 seconds = 5 minutes
+  const router = useRouter();
   
+  //hvis timeren rammer 0 inden du har fuldført købet så redirectes du til ticket siden
+  useEffect(() => {
+    if (timeLeft <= 0) {
+      alert("Your reservation has been lost, because the time has expired");
+      router.push("/booking/ticketoverview"); 
+    }
+    
+    const timer = setInterval(() => {
+      setTimeLeft((prev) => prev - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [timeLeft, router]);
+
   //Funktionen som sender dataen til databasen når submit knappen klikkes på
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -74,9 +89,17 @@ export default function GuestForm() {
     
     
   };
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
 
   return (
     <section className="">
+         <div className="mb-4  text-lg text-White p-2 font-bold border-b border-Hotpink">
+        Time left to complete your order: {formatTime(timeLeft)}
+      </div>
       <h2 className="mb-2 font-semibold text-xl">Guest 1</h2>
 
       <form onSubmit={handleSubmit} className="w-full max-w-sm">

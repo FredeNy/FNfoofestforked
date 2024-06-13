@@ -22,7 +22,18 @@ const CardPayment = () => {
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
-    setState((prev) => ({ ...prev, [name]: value }));
+    let newValue = value;
+
+    if (name === "expiry") {
+      newValue = value.replace(/\D/g, ""); // Remove non-digit characters
+
+      if (newValue.length > 2) {
+        newValue = newValue.slice(0, 2) + "/" + newValue.slice(2);
+      }
+   
+    }
+
+    setState((prev) => ({ ...prev, [name]: newValue }));
   };
 
   const handleInputFocus = (evt) => {
