@@ -24,10 +24,10 @@ const CardPayment = () => {
     const { name, value } = evt.target;
     let newValue = value;
 
-    if (name === "expiry") {
-      newValue = value.replace(/\D/g, ""); // Remove non-digit characters
-
-      if (newValue.length > 2) {
+    if (name === "expiry" || name === "number" || name === "cvc") {
+      newValue = value.replace(/\D/g, ""); 
+  
+      if (name === "expiry" && newValue.length > 2) {
         newValue = newValue.slice(0, 2) + "/" + newValue.slice(2);
       }
    
@@ -59,7 +59,7 @@ const CardPayment = () => {
               <label className="text-White">Card number<span className="text-Hotpink"> *</span></label>
               <input
                 className="p-2 rounded-md bg-White focus:outline-none focus:ring focus:ring-Hotpink"
-                type="text"
+                type="numeric"
                 name="number"
                 placeholder="1111 2222 3333 4444"
                 pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}"
@@ -88,7 +88,7 @@ const CardPayment = () => {
                 <label className="text-White">Expiration date<span className="text-Hotpink"> *</span></label>
                 <input
                   className="p-2 rounded-md bg-White focus:outline-none focus:ring focus:ring-Hotpink"
-                  type="text"
+                  type="numeric"
                   name="expiry"
                   placeholder="MM/YY"
                   pattern="\d{2}/\d{2}"
@@ -103,7 +103,7 @@ const CardPayment = () => {
                 <label className="text-White">CVC<span className="text-Hotpink"> *</span></label>
                 <input
                   className="p-2 rounded-md bg-White focus:outline-none focus:ring focus:ring-Hotpink"
-                  type="text"
+                  type="numeric"
                   name="cvc"
                   placeholder="123"
                   pattern="\d{3}"
